@@ -8,24 +8,29 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+//cell dimensions and border properties
 var cellStyle = {
   width: '10px',
   height: '10px',
   border: '1px solid rgba(104, 112, 103, 0.5)'
 };
 
+//cell color of 'alive' state in first generation
 var aliveStyle = {
   backgroundColor: 'pink'
 };
 
+//cell color of 'dead' state
 var deadStyle = {
   backgroundColor: 'black'
 };
 
+//cell color of 'alive' state for more than one generation
 var oldStyle = {
   backgroundColor: 'red'
 };
 
+//top navigation bar properties
 var navStyle = {
   width: '100%',
   position: 'fixed',
@@ -36,23 +41,27 @@ var navStyle = {
   zIndex: 1
 };
 
+//navigation bar generation counter properties
 var genStyle = {
   position: 'absolute',
   marginLeft: '20px'
 };
 
+//navigation bar play/pause button properties
 var ppStyle = {
   position: 'absolute',
   marginLeft: '200px',
   cursor: 'pointer'
 };
 
+//navigation bar clear button properties
 var clearStyle = {
   position: 'absolute',
   marginLeft: '300px',
   cursor: 'pointer'
 };
 
+//table position and margin
 var tableStyle = {
   position: 'relative',
   margin: '0 auto',
@@ -74,9 +83,11 @@ var inputStyle = {
   backgroundColor: 'transparent',
   width: '50px',
   border: '1px solid black'
-};
 
-var lifecycle = [aliveStyle, deadStyle, oldStyle];
+  //three possible states for each cell
+};var lifecycle = [aliveStyle, deadStyle, oldStyle];
+
+//component for game board
 
 var Board = function (_React$Component) {
   _inherits(Board, _React$Component);
@@ -188,6 +199,9 @@ var Board = function (_React$Component) {
     return _this;
   }
 
+  //generates random board with each cell in one of three possible states; called automatically upon mounting
+
+
   _createClass(Board, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
@@ -199,6 +213,21 @@ var Board = function (_React$Component) {
         play: true
       });
     }
+
+    //advances board one generation; contains logic for state of cells in next generation
+
+
+    //checks cells contiguous to a particular cell with x and y coordinates given by parameters i,j, respectively
+
+
+    //toggles cell state to dead if alive or old and alive if dead when user clicks cell
+
+
+    //toggles board state between 'play' - board ticking up generations - and 'pause' - board displaying single generation
+
+
+    //sets all cells on board to 'dead'
+
   }, {
     key: 'render',
     value: function render() {
