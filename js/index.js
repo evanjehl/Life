@@ -97,6 +97,7 @@ var Board = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (Board.__proto__ || Object.getPrototypeOf(Board)).call(this, props));
 
+    //generates random board with each cell in one of three possible states; called automatically upon mounting
     _this.generateRandomBoard = function () {
       var board = [];
       var rows = 150;
@@ -110,6 +111,7 @@ var Board = function (_React$Component) {
       return board;
     };
 
+    //advances board one generation; contains logic for state of cells in next generation
     _this.tick = function () {
       var arr = [];
       for (var i = 0; i < _this.state.rows; i++) {
@@ -125,6 +127,7 @@ var Board = function (_React$Component) {
       });
     };
 
+    //checks cells contiguous to a particular cell with x and y coordinates given by parameters i,j, respectively
     _this.checkSurroundingCells = function (i, j) {
       var x = i + 1 >= _this.state.rows ? 0 : i + 1;
       var y = i - 1 <= -1 ? _this.state.rows - 1 : i - 1;
@@ -148,6 +151,7 @@ var Board = function (_React$Component) {
       }
     };
 
+    //toggles cell state to dead if alive or old and alive if dead when user clicks cell
     _this.handleClick = function (row, col) {
       var clickedRow = _this.state.board[row].slice();
       clickedRow[col] = _this.state.board[row][col] !== 1 ? 1 : 0;
@@ -161,6 +165,7 @@ var Board = function (_React$Component) {
       });
     };
 
+    //toggles board state between 'play' - board ticking up generations - and 'pause' - board displaying single generation
     _this.togglePlayPause = function () {
       var that = _this;
       _this.setState({
@@ -171,6 +176,7 @@ var Board = function (_React$Component) {
       });
     };
 
+    //sets all cells on board to 'dead'
     _this.clear = function () {
       var arr = [];
       for (var i = 0; i < _this.state.rows; i++) {
@@ -199,7 +205,7 @@ var Board = function (_React$Component) {
     return _this;
   }
 
-  //generates random board with each cell in one of three possible states; called automatically upon mounting
+
 
 
   _createClass(Board, [{
@@ -213,21 +219,6 @@ var Board = function (_React$Component) {
         play: true
       });
     }
-
-    //advances board one generation; contains logic for state of cells in next generation
-
-
-    //checks cells contiguous to a particular cell with x and y coordinates given by parameters i,j, respectively
-
-
-    //toggles cell state to dead if alive or old and alive if dead when user clicks cell
-
-
-    //toggles board state between 'play' - board ticking up generations - and 'pause' - board displaying single generation
-
-
-    //sets all cells on board to 'dead'
-
   }, {
     key: 'render',
     value: function render() {
