@@ -1,3 +1,7 @@
-A Pen created at CodePen.io. You can find this one at https://codepen.io/evanjehl/pen/VrOymE.
+A live preview of this app can be found at https://codepen.io/evanjehl/pen/VrOymE.
 
- 
+This React App is an implementation of Conway's Game of Life. The board, at 150 rows by 120 columns, is initialized upon mounting with a random state of 'dead' (black) or 'alive' (light red) in each of its cells, and then automatically ticks to successive generations. Cells that remain 'alive' for longer than one generation enter a state of 'old' (dark red) but remain subject to the traditional rules of the game and will accordingly die with too few or many neighbors.
+
+A toolbar at the top includes a generation counter that displays the current generation, a play/pause button that allows one to pause the board at the current generation, and a reset button that renders all cells dead and sets the generation back to zero. The user may click an individual cell during 'play' or 'pause' state to toggle a cell between alive/old and dead (but may not animate a cell from dead to old, only alive).
+
+A single React component consolidates the logic and display of the board, with state including the current state of each cell in the board, the interval of the ticker, the current generation, play/pause, rows, columns, and speed expressed as delay of interval in ms.
